@@ -1,0 +1,32 @@
+@include ff-batch($ff-map);
+html {
+    font-size: $base__font-size;
+    font-family: 'FiraSans', sans-serif;
+    font-weight: 500;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: rhythm-rem(1);
+}
+h1 {
+    font-size: $h1__font-size;
+}
+h2 {
+    font-size: $h2__font-size;
+}
+h3 {
+    font-size: $h3__font-size;
+}
+h4 {
+    font-size: $h4__font-size;
+}
+h5 {
+    font-size: $h5__font-size;
+}
+h6 {
+    font-size: $h6__font-size;
+}

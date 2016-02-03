@@ -1,0 +1,54 @@
+//
+//  Raw Units
+$raw__font-size:        16;
+//
+//  General Units
+$base__font-path:       "../fonts/";
+$base__font-ratio:      1.333;
+$base__font-size:       ( $raw__font-size / 16 ) * 100%;
+$base__font-unit:       1em;
+$base__line-height:     1.5;
+//
+//  Typeface Rhythm
+$h5__font-size:         $base__font-unit;
+$h6__font-size:         $h5__font-size / $base__font-ratio;
+$h4__font-size:         $h5__font-size * $base__font-ratio;
+$h3__font-size:         $h4__font-size * $base__font-ratio;
+$h2__font-size:         $h3__font-size * $base__font-ratio;
+$h1__font-size:         $h2__font-size * $base__font-ratio;
+//
+//  Typeface
+$ff-map: (
+    "FiraSans": (
+        (
+            "name": "FiraSans-Light",
+            "formats": ("woff", "eot"),
+            "weight": 300
+        ), (
+            "name": "FiraSans-Regular",
+            "formats": ("woff", "eot"),
+            "weight": 500
+        ), (
+            "name": "FiraSans-Medium",
+            "formats": ("woff", "eot"),
+            "weight": 600
+        ), (
+            "name": "FiraSans-Bold",
+            "formats": ("woff", "eot"),
+            "weight": 700
+        ),
+    )
+);
+
+
+//
+//  Ratios based on classical scale
+//
+//  1.067      Minor Second
+//  1.125      Major Second
+//  1.200      Minor Third
+//  1.250      Major Third
+//  1.333      Perfect Fourth
+//  1.414      Augmented Fourth
+//  1.500      Perfect Fifth
+//  1.618      Golden Ratio

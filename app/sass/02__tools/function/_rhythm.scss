@@ -1,0 +1,17 @@
+@function rhythm($input) {
+    $rhythm: $input * $base__line-height * $base__font-unit;
+    @return $rhythm;
+}
+
+@function rhythm-rem($input) {
+    $rhythm-rem: $input * $base__line-height * 1rem;
+    @return $rhythm-rem;
+}
+
+@mixin rhythm-rem($property, $input) {
+    //  $rhythm-rem-px:  $input * $base__line-height * ($raw__font-size * 1px);
+    $rhythm-rem:     $input * $base__line-height * 1rem;
+
+    //  #{$property}: $rhythm-rem-px;
+    #{$property}: $rhythm-rem;
+}
