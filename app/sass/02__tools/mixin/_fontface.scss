@@ -9,7 +9,7 @@
 
 /// Path to the location of the font files
 /// @type String
-$ff-dir: '/fonts' !default;
+$ff-dir: $base__font-path !default;
 
 /// List storing all the fonts to import.
 /// The `name` key is the name of the file minus the file extension.
@@ -52,7 +52,21 @@ $ff-map: () !default;
     $src: ();
     $name: map-get($font, name);
     @each $format in map-get($font, formats) {
-        $src: append($src, url($ff-dir + "/" + $name + "." + unquote($format)) format(quote($format)), "comma");
+        @if $format == "eot" {
+            $src: append($src, url($ff-dir + $name + "." + unquote($format) + "?#iefix") format(quote("embedded-opentype")), "comma");
+        }
+        @if $format == "woff2" {
+            $src: append($src, url($ff-dir + $name + "." + unquote($format)) format(quote($format)), "comma");
+        }
+        @if $format == "woff" {
+            $src: append($src, url($ff-dir + $name + "." + unquote($format)) format(quote($format)), "comma");
+        }
+        @if $format == "ttf" {
+            $src: append($src, url($ff-dir + $name + "." + unquote($format)) format(quote("truetype")), "comma");
+        }
+        @if $format == "svg" {
+            $src: append($src, url($ff-dir + $name + "." + unquote($format) + "#svg" + $name) format(quote($format)), "comma");
+        }
     }
     @return $src;
 }
@@ -80,7 +94,7 @@ $ff-map: () !default;
 ///
 /// @see $ff-map
 /// @requires ff-single
-/// @requires ff-get-src
+/// @requires ff-build-src
 /// @group fonts
 @mixin ff-batch($fonts) {
     @each $font-group-name, $font-groups in $fonts {
@@ -96,3 +110,4 @@ $ff-map: () !default;
         }
     }
 }
+

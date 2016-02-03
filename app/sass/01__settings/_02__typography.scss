@@ -22,25 +22,23 @@ $ff-map: (
     "FiraSans": (
         (
             "name": "FiraSans-Light",
-            "formats": ("woff", "eot"),
-            "weight": 300
+            "formats": ("eot", "woff", "ttf", "svg"),
+            "weight": "300"
         ), (
             "name": "FiraSans-Regular",
-            "formats": ("woff", "eot"),
-            "weight": 500
+            "formats": ("eot", "woff"),
+            "weight": "500"
         ), (
             "name": "FiraSans-Medium",
-            "formats": ("woff", "eot"),
-            "weight": 600
+            "formats": ("eot", "woff"),
+            "weight": "600"
         ), (
             "name": "FiraSans-Bold",
-            "formats": ("woff", "eot"),
-            "weight": 700
+            "formats": ("eot", "woff"),
+            "weight": "700"
         ),
     )
 );
-
-
 //
 //  Ratios based on classical scale
 //
