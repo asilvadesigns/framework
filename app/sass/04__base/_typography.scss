@@ -1,8 +1,11 @@
 @include ff-batch($ff-map);
 html {
     font-size: $base__font-size;
+}
+body {
     font-family: 'FiraSans', sans-serif;
     font-weight: 500;
+    line-height: $base__line-height;
 }
 h1,
 h2,
@@ -10,6 +13,7 @@ h3,
 h4,
 h5,
 h6 {
+    line-height: 1;
     margin-bottom: rhythm-rem(1);
 }
 h1 {
@@ -30,4 +34,6 @@ h5 {
 h6 {
     font-size: $h6__font-size;
 }
-
+p {
+    margin-bottom: rhythm(1);
+}
