@@ -7,15 +7,6 @@ body {
     font-weight: 500;
     line-height: $base__line-height;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    line-height: 1;
-    margin-bottom: rhythm-rem(1);
-}
 h1 {
     font-size: $h1__font-size;
 }
@@ -34,6 +25,7 @@ h5 {
 h6 {
     font-size: $h6__font-size;
 }
-p {
+p, ul, ol {
+    list-style-position: outside;
     margin-bottom: rhythm(1);
 }
