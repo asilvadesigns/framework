@@ -4,10 +4,9 @@ var gulp         = require('gulp'),
     browserSync  = require('browser-sync'),
     cssnano      = require('gulp-cssnano'),
     htmlmin      = require('gulp-htmlmin'),
-    inlineSource = require('gulp-inline-source'),
+    //  inlineSource = require('gulp-inline-source'),
     plumber      = require('gulp-plumber'),
     sass         = require('gulp-sass'),
-    sequence     = require('gulp-sequence'),
     sassdoc      = require('sassdoc'),
     reload       = browserSync.reload;
 
@@ -17,13 +16,6 @@ gulp.task('html', function() {
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
-        .pipe(gulp.dest('./min'))
-});
-
-//  InlineSource
-gulp.task('inline', function() {
-    gulp.src('./min/*.html')
-        .pipe(inlineSource())
         .pipe(gulp.dest('./dist'))
         .pipe(reload({
             stream: true
@@ -34,6 +26,9 @@ gulp.task('inline', function() {
 gulp.task('fonts', function() {
     gulp.src('./app/fonts/**/*.*')
         .pipe(gulp.dest('./dist/fonts/'))
+        .pipe(reload({
+            stream: true
+        }));
 });
 
 //  SASS
@@ -47,26 +42,24 @@ gulp.task('sass', function() {
             cascade:   false
         }))
         .pipe(cssnano())
-        .pipe(gulp.dest('./min/css'))
+        .pipe(gulp.dest('./dist/css'))
+        .pipe(reload({
+            stream: true
+        }));
 });
 
 //  Serve
-gulp.task('serve', ['sequence'], function() {
+gulp.task('serve', ['sass','html','fonts'], function() {
     browserSync.init({
         server: "./dist",
         notify: false
     });
 });
 
-//  Order
-gulp.task('sequence', function(cb) {
-    sequence('sass','html','inline')(cb)
-});
-
 //  Watch
 gulp.task('watch', ['serve'], function() {
-    gulp.watch('./app/*.html', ['sequence']);
-    gulp.watch('./app/sass/**/*.scss', ['sequence']);
+    gulp.watch('./app/*.html', ['html']);
+    gulp.watch('./app/sass/**/*.scss', ['sass']);
     gulp.watch('./app/fonts/**/*.*', ['fonts']);
 });
 
