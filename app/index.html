@@ -8,37 +8,102 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/screen.css" inline>
     </head>
-    <body>
+    <body id="offcanvas" class="offcanvas">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="wrapper">
-            <h1>Heading 1</h1>
-            <h2>Heading 2</h2>
-            <h3>Heading 3</h3>
-            <h4>Heading 4</h4>
-            <h5>Heading 5</h5>
-            <h6>Heading 6</h6>
-            <p>Ipsum lorem excepturi voluptates adipisci quod, eum natus perferendis temporibus. Consectetur veritatis vitae quae atque et mollitia vero beatae voluptate officia quo! Repellat beatae dolor tempora vero consequatur. Iste corporis praesentium recusandae quaerat consequatur commodi. Unde officia aspernatur accusantium tenetur.</p>
-            <p>Lorem ipsum recusandae a recusandae sed. Maiores mollitia velit incidunt accusantium voluptates, excepturi asperiores eligendi impedit assumenda! Aspernatur eligendi rem error nulla molestias quidem corporis, provident officiis debitis quae! Possimus eligendi illo enim vitae dignissimos? Nesciunt eveniet veritatis fugiat cumque.</p>
-            <h4>Lists</h4>
-            <ul>
-                <li>Ipsum debitis pariatur!</li>
-                <li>Lorem nemo soluta.</li>
-                <li>Consectetur sed at?</li>
-                <li>Consectetur blanditiis id?</li>
-                <li>Amet obcaecati quas.</li>
-                <li>Ipsum vel assumenda.</li>
-            </ul>
-            <ol>
-                <li>Ipsum debitis pariatur!</li>
-                <li>Lorem nemo soluta.</li>
-                <li>Consectetur sed at?</li>
-                <li>Consectetur blanditiis id?</li>
-                <li>Amet obcaecati quas.</li>
-                <li>Ipsum vel assumenda.</li>
-            </ol>
+        <nav id="oncanvas__nav" class="oncanvas__nav nav nav--navbar">
+            <a class="nav__item visible--tablet" onclick="OpenSidebar(offcanvas__nav, offcanvas__backdrop)"><i class="ion ion-navicon-round"></i></a>
+            <a class="nav__item">Logo</a>
+            <a class="nav__item go-right" href=""><i class="ion ion-gear-b"></i></a>
+        </nav>
+        <div id="offcanvas__wrapper" class="offcanvas__wrapper">
+            <nav id="offcanvas__nav" class="offcanvas__nav nav nav--sidebar">
+                <div id="offcanvas__nav__inner" class="offcanvas__nav__inner">
+                    <a class="nav__item" href="">Nav Item 1</a>
+                    <a class="nav__item" href="">Nav Item 2</a>
+                    <a class="nav__item" href="">Nav Item 3</a>
+                </div>
+            </nav>
+            <div id="offcanvas__backdrop" class="offcanvas__backdrop fade invisible" onclick="CloseSidebar(offcanvas__nav, offcanvas__backdrop)"></div>
+            <div id="offcanvas__body" class="offcanvas__body">
+                <div id="offcanvas__body__inner" class="offcanvas__body__inner">
+                    <div class="wrapper">
+                        <h1>Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 3</h3>
+                        <h4>Heading 4</h4>
+                        <h5>Heading 5</h5>
+                        <h6>Heading 6</h6>
+                        <p>Ipsum lorem excepturi voluptates adipisci quod, eum natus perferendis temporibus. Consectetur veritatis vitae quae atque et mollitia vero beatae voluptate officia quo! Repellat beatae dolor tempora vero consequatur. Iste corporis praesentium recusandae quaerat consequatur commodi. Unde officia aspernatur accusantium tenetur.</p>
+                        <p>Lorem ipsum recusandae a recusandae sed. <a href="">Maiores</a> mollitia velit incidunt accusantium voluptates, excepturi asperiores eligendi impedit assumenda! Aspernatur eligendi rem error nulla molestias quidem corporis, provident officiis debitis quae! Possimus eligendi illo enim vitae dignissimos? Nesciunt eveniet veritatis fugiat cumque.</p>
+                        <p><a class="btn" href="">Button</a></p>
+                        <h4>Lists</h4>
+                        <ul>
+                            <li>Ipsum debitis pariatur!</li>
+                            <li>Lorem nemo soluta.</li>
+                            <li>Consectetur sed at?</li>
+                            <li>Consectetur blanditiis id?</li>
+                            <li>Amet obcaecati quas.</li>
+                            <li>Ipsum vel assumenda.</li>
+                        </ul>
+                        <ol>
+                            <li>Ipsum debitis pariatur!</li>
+                            <li>Lorem nemo soluta.</li>
+                            <li>Consectetur sed at?</li>
+                            <li>Consectetur blanditiis id?</li>
+                            <li>Amet obcaecati quas.</li>
+                            <li>Ipsum vel assumenda.</li>
+                        </ol>
+                    </div>
+                    <nav class="nav nav--navbar">
+                        <a class="nav__item" href=""><i class="ion ion-fw--left ion-ios-arrow-back"></i> Previous</a>
+                        <a class="nav__item go-right" href="">Next <i class="ion ion-fw--right ion-ios-arrow-forward"></i></a>
+                    </nav>
+                </div>
+            </div>
         </div>
+        <script>
+            //
+            //  Offcanvas Body Adjust
+            UpdateHeight("oncanvas__nav", "offcanvas__body__inner");
+            UpdateHeight("oncanvas__nav", "offcanvas__nav__inner");
+
+            window.addEventListener("resize", function() {
+                UpdateHeight("oncanvas__nav", "offcanvas__body__inner");
+                UpdateHeight("oncanvas__nav", "offcanvas__nav__inner");
+            });
+
+            function UpdateHeight(adjuster, adjustee) {
+                var adjuster          = document.getElementById(adjuster);
+                var adjustee          = document.getElementById(adjustee);
+
+                var window__height    = window.innerHeight;
+                var adjuster__height  = adjuster.offsetHeight;
+
+                adjustee.style.height = window__height - adjuster__height + "px";
+            };
+
+            //
+            //  Open Sidebar
+            function OpenSidebar(el, backdrop) {
+                el.className += " open";
+
+                backdrop.className += " in";
+                backdrop.className = backdrop.className.replace(" invisible","");
+            };
+
+            //
+            //  Close Sidebar
+            function CloseSidebar(el, backdrop) {
+                el.className = el.className.replace(" open","");
+
+                backdrop.className = backdrop.className.replace(" in","");
+                setTimeout( function(){
+                    backdrop.className += " invisible";
+                }, 250 );
+            };
+        </script>
     </body>
 </html>
 

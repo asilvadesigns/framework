@@ -14,7 +14,8 @@ var gulp         = require('gulp'),
 gulp.task('html', function() {
     gulp.src('./app/*.html')
         .pipe(htmlmin({
-            collapseWhitespace: true
+            collapseWhitespace: true,
+            minifyJS: true
         }))
         .pipe(gulp.dest('./dist'))
         .pipe(reload({
@@ -41,7 +42,7 @@ gulp.task('sass', function() {
             browsers:  ['last 2 versions'],
             cascade:   false
         }))
-        .pipe(cssnano())
+        //  .pipe(cssnano())
         .pipe(gulp.dest('./dist/css'))
         .pipe(reload({
             stream: true

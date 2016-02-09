@@ -45,5 +45,16 @@
         border-collapse: collapse;
         border-spacing: 0;
     }
+    //
+    //  My Additions
+    //
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+        }
+    }
 }
 

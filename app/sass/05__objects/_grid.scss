@@ -1,4 +1,13 @@
+//
+//  Units
+$grid__y: half($base__y);
+$grid__x: $base__x;
+//
+//  Base
 .wrapper {
     margin: 0 auto;
-    max-width: 30em;
+    padding-left: $grid__x;
+    padding-right: $grid__x;
+    max-width: 34em;
 }
+

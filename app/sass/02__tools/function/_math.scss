@@ -1,0 +1,14 @@
+@function half($input) {
+    $output: $input / 2;
+    @return $output;
+}
+
+@function third($input) {
+    $output: $input / 3;
+    @return $output;
+}
+
+@function quarter($input) {
+    $output: $input / 4;
+    @return $output;
+}

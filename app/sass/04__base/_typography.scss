@@ -1,9 +1,11 @@
-@include ff-batch($ff-map);
+//  @include ff-batch($fira);
+@include ff-batch($museo);
+
 html {
     font-size: $base__font-size;
 }
 body {
-    font-family: 'FiraSans', sans-serif;
+    font-family: 'MuseoSans', sans-serif;
     font-weight: 500;
     line-height: $base__line-height;
 }
@@ -26,6 +28,5 @@ h6 {
     font-size: $h6__font-size;
 }
 p, ul, ol {
-    list-style-position: outside;
     margin-bottom: rhythm(1);
 }

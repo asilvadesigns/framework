@@ -1,0 +1,49 @@
+//
+//  Units
+$nav__y:               third($base__y);
+$nav__x:               $base__x;
+$nav--navbar__color:   $primary__color;
+$nav--sidebar__color:  $neutral__color;
+//
+//  Base
+.nav {
+    @include clearfix;
+}
+
+.nav__item {
+    display: block;
+
+    box-sizing: border-box;
+    padding: $nav__y $nav__x;
+
+    color: inherit;
+}
+
+.nav--navbar .nav__item {
+    float: left;
+}
+//
+//  Color
+.nav--navbar {
+    color: white;
+    background-color: $nav--navbar__color;
+
+    .nav__item {
+        &:hover,
+        &:focus {
+            background-color: tint($nav--navbar__color, 15);
+        }
+    }
+}
+
+.nav--sidebar {
+    color: white;
+    background-color: $nav--sidebar__color;
+
+    .nav__item {
+        &:hover,
+        &:focus {
+            background-color: shade($nav--sidebar__color, 15);
+        }
+    }
+}

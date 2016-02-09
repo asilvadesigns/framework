@@ -17,12 +17,39 @@ $h3__font-size:         $h4__font-size * $base__font-ratio;
 $h2__font-size:         $h3__font-size * $base__font-ratio;
 $h1__font-size:         $h2__font-size * $base__font-ratio;
 //
-//  Typeface
-$ff-map: (
+//  Fonts
+$icon: (
+    //  "outlined-iconset": (
+    //      (
+    //          "name": "outlined-iconset",
+    //          "formats": ("eot", "woff", "ttf", "svg"),
+    //          "weight": "500"
+    //      ),
+    //  )
+    "ionicons": (
+        (
+            "name": "ionicons",
+            "formats": ("eot", "woff", "ttf", "svg"),
+            "weight": "500"
+        ),
+    )
+);
+
+$museo: (
+    "MuseoSans": (
+        (
+            "name": "MuseoSans_500-webfont",
+            "formats": ("eot", "woff2", "woff", "ttf", "svg"),
+            "weight": "500"
+        ),
+    )
+);
+
+$fira: (
     "FiraSans": (
         (
             "name": "FiraSans-Light",
-            "formats": ("eot", "woff", "ttf", "svg"),
+            "formats": ("eot", "woff"),
             "weight": "300"
         ), (
             "name": "FiraSans-Regular",

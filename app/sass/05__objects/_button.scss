@@ -1,0 +1,21 @@
+//
+//  Units
+$btn__y: third($base__y);
+$btn__x: $base__x;
+//
+//  Base
+.btn {
+    display: inline-block;
+
+    box-sizing: border-box;
+    padding: $btn__y $btn__x;
+
+    color: white;
+    border: 1px solid;
+    background-color: $primary__color;
+
+    &:hover,
+    &:focus {
+        background-color: shade($primary__color, 10%);
+    }
+}
