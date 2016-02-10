@@ -12,3 +12,8 @@
     $output: $input / 4;
     @return $output;
 }
+
+@function three-fourths($input) {
+    $output: $input * .75;
+    @return $output;
+}

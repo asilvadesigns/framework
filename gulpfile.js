@@ -42,7 +42,7 @@ gulp.task('sass', function() {
             browsers:  ['last 2 versions'],
             cascade:   false
         }))
-        //  .pipe(cssnano())
+        .pipe(cssnano())
         .pipe(gulp.dest('./dist/css'))
         .pipe(reload({
             stream: true
